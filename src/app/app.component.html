@@ -4,13 +4,15 @@
      {{ title }}
   </h1>
   <nav>
-    <a routerLink="/agregar" routerLinkActive="active">Agregar Vehiculo</a>
-    <a routerLink="/listar" routerLinkActive="active">Listar Vehiculos</a>
+    <a routerLink="/vehiculo/agregar" routerLinkActive="active">Agregar Vehiculo</a>
+    <a routerLink="/vehiculo/listar" routerLinkActive="active">Listar Vehiculos</a>
   </nav>
- 
-  <router-outlet>
-   
-  </router-outlet>
+  <div id="main" class="container" role="main">
+      <div class="row">
+        <br>
+        <router-outlet>  </router-outlet>
+      </div>
+  </div>
 
 </div>
 

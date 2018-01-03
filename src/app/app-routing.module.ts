@@ -4,9 +4,9 @@ import { RegistrarVehiculosComponent } from './registrar-vehiculos/registrar-veh
 import { ListarvehiculosComponent } from './listarvehiculos/listarvehiculos.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/listar', pathMatch: 'full' },
-    { path: 'listar',  component: ListarvehiculosComponent },
-     { path: 'agregar',  component: RegistrarVehiculosComponent }   
+    { path: '', redirectTo: '/vehiculo/listar', pathMatch: 'full' },
+    { path: 'vehiculo/listar',  component: ListarvehiculosComponent },
+     { path: 'vehiculo/agregar',  component: RegistrarVehiculosComponent }   
   ];
    
   @NgModule({
