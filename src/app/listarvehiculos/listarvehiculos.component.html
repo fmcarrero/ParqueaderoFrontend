@@ -1,11 +1,31 @@
-<h2>{{listado}} </h2>
+<br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">{{listado}}</div>
+  <div class="panel-body">
+      
+          <table class="table table-responsive  table-bordered">
+              <thead>
+                <tr>
+                  <th>Placa</th>               
+                  <th>Ingreso</th>   
+                  <th>Tipo Vehiculo</th> 
+                  <th>Observación</th> 
+                  <th>Acciones</th>  
+                </tr> 
+           </thead>
+           <tbody>
+             <tr *ngFor="let obj of estacionamiento">
+                <td>{{obj.placa}} </td>
+                <td>{{obj.fechaHoraInicio  | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>{{TipoVehiculoEnum[obj.vehiculo.idTipoVehiculo] }} </td>
+                <td>{{obj.observacion }} </td>
+                <td><button class="btn btn-primary">Dar salida</button></td>
+             </tr>
+           </tbody>
+          </table>         
+  </div>
 
-
-    
-    <div>
-      <div *ngFor="let vehiculo of estacionamiento"
-          class="search-result" >
-        {{vehiculo.placa}}
-      </div>
-    </div>
-
+  
+</div>
+ 

@@ -6,6 +6,7 @@ import { ParqueaderoService } from '../parqueadero.service';
 import { HttpClient } from '@angular/common/http';
 import { appApiResources } from '../app.constants';
 import 'rxjs/add/operator/map';
+import { TipoVehiculoEnum } from '../../utilEnum/tipovehiculoenum';
 @Component({
   selector: 'app-listarvehiculos',
   templateUrl: './listarvehiculos.component.html',
@@ -13,6 +14,9 @@ import 'rxjs/add/operator/map';
 })
 
 export class ListarvehiculosComponent implements OnInit {
+
+  TipoVehiculoEnum = TipoVehiculoEnum;
+  myValue : TipoVehiculoEnum;
   estacionamiento: Estacionamiento[];
   listado = 'Listado Vehiculos';
   constructor(private parqueaderoservice : ParqueaderoService) { }  
