@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { appApiResources } from '../app.constants';
 import 'rxjs/add/operator/map';
 import { TipoVehiculoEnum } from '../../utilEnum/tipovehiculoenum';
+
 @Component({
   selector: 'app-listarvehiculos',
   templateUrl: './listarvehiculos.component.html',
@@ -30,10 +31,11 @@ export class ListarvehiculosComponent implements OnInit {
       .subscribe(
       data => { this.estacionamiento= data
             console.log(this.estacionamiento);
+            
       },
       err => console.error(err),
       // the third argument is a function which runs on completion
-      () => console.log('done loading vehiculos estacionados')
+      
     );
   }
 

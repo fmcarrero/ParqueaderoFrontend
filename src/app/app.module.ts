@@ -7,6 +7,9 @@ import { RegistrarVehiculosComponent } from './registrar-vehiculos/registrar-veh
 import { ListarvehiculosComponent } from './listarvehiculos/listarvehiculos.component';
 import { ParqueaderoService } from './parqueadero.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [ParqueaderoService],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { Vehiculo } from '../../entidades/vehiculo';
 import {FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TipoVehiculoEnum } from '../../utilEnum/tipovehiculoenum';
 import { ParqueaderoService } from '../parqueadero.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class RegistrarVehiculosComponent implements OnInit {
   automovilForm: FormGroup;
   automovilList = TipoVehiculoEnum;
   public keys;
-  constructor(private fb:FormBuilder,private parqueaderoservice : ParqueaderoService) {
+  constructor(private fb:FormBuilder,private parqueaderoservice : ParqueaderoService,private toastr: ToastrService) {
     this.keys  = Object.keys(this.automovilList).filter(Number);
    }
   get placa() { return this.automovilForm.get('placa'); }
@@ -41,10 +42,14 @@ export class RegistrarVehiculosComponent implements OnInit {
         this.parqueaderoservice.agregarVehiculo(this.Vehiculo).subscribe(
           data => { 
                 console.log(data);
+                this.toastr.success("se guardo correctamente el vehiculo");
+                //this.notificationsService.addInfo("se guardo correctamente el vehiculo");
           },
-          err => console.error(err),
-          // the third argument is a function which runs on completion
-          () => console.log('done add vehiculos estacionados')
+          err => {console.error(err);
+                  this.toastr.error(err.error.message);
+                  //this.notificationsService.addError("error");
+                  console.log(err);
+        }
         );
     }
 }
