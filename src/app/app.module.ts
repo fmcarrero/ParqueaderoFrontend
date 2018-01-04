@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SalidavehiculosComponent } from './salidavehiculos/salidavehiculos.component';
+import { FacturaComponent } from './factura/factura.component';
+import { DatamessageService } from './datamessage.service';
 
 
 
@@ -18,7 +20,8 @@ import { SalidavehiculosComponent } from './salidavehiculos/salidavehiculos.comp
     AppComponent,  
     RegistrarVehiculosComponent,
     ListarvehiculosComponent,
-    SalidavehiculosComponent
+    SalidavehiculosComponent,
+    FacturaComponent
   ],
   imports: [
     AppRoutingModule,
@@ -28,7 +31,7 @@ import { SalidavehiculosComponent } from './salidavehiculos/salidavehiculos.comp
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [ParqueaderoService],
+  providers: [ParqueaderoService, DatamessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

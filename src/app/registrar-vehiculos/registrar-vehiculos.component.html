@@ -5,7 +5,7 @@
 <form  [formGroup]="automovilForm" (ngSubmit)="onFormSubmit()">
     <div class="form-group">
       <label for="placa">Placa</label>
-      <input type="text" formControlName = "placa" class="form-control" id="placa" placeholder="ingrese la placa">
+      <input type="text" formControlName = "placa" (focusout)="focusOutFunctionplaca()" class="form-control" id="placa" placeholder="ingrese la placa">
       <div *ngIf="(placa.invalid && placa.touched)" class="col-sm-3 text-danger">
              ingrese un valor valido
       </div> 
@@ -39,6 +39,6 @@
             ingrese un valor valido
         </div>
       </div>
-  <button type="submit"  [disabled] = "!automovilForm.valid"  class="btn btn-primary">Submit</button>
+  <button type="submit"  [disabled] = "!automovilForm.valid"  class="btn btn-primary">Agregar Vehiculo</button>
   </form>
 </div>

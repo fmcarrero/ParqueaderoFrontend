@@ -7,6 +7,7 @@ import { Vehiculo } from '../entidades/vehiculo';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { HttpResponse } from '@angular/common/http/src/response';
+import { Factura } from '../entidades/factura';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' ,'Access-Control-Allow-Origin': '*'})
@@ -32,10 +33,14 @@ export class ParqueaderoService {
   }
   SalidaVehiculo(estacionamiento : Estacionamiento){
     
-    return this.http.post(appApiResources.salidavehiculos,{
+    return this.http.post<Factura>(appApiResources.salidavehiculos,{
       "placa": estacionamiento.placa,
       "fechahorafin" : Date.now()
     },httpOptions);
+  }
+
+  getVehiculo(placa : string){
+    return this.http.get<Vehiculo>(`${appApiResources.buscarVehiculo}/${placa}`);
   }
    
 }

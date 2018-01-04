@@ -34,7 +34,23 @@ export class RegistrarVehiculosComponent implements OnInit {
       tipovehiculo : new FormControl('',Validators.required),     
     });
   }
- 
+  focusOutFunctionplaca(){
+    var placavalue = this.automovilForm.value.placa;
+    if(placavalue!= ''){
+      this.parqueaderoservice.getVehiculo(placavalue).subscribe(
+        data =>{
+            console.log(data);
+            this.automovilForm.setValue({placa :data.placa,
+                                        cilindraje: data.cilindraje,
+                                        color : data.color,
+                                        tipovehiculo : data.idTipoVehiculo,
+                                        observacion : ''});            
+            this.Vehiculo =data;
+        }
+      )
+    }  
+    
+  }
   public onFormSubmit() {
     if(this.automovilForm.valid) {
         this.Vehiculo = this.automovilForm.value;

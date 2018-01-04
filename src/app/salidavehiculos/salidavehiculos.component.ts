@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ParqueaderoService } from '../parqueadero.service';
 import { Estacionamiento } from '../../entidades/estacionamiento';
 import { ToastrService } from 'ngx-toastr';
 import { TipoVehiculoEnum } from '../../utilEnum/tipovehiculoenum';
+import { Factura } from '../../entidades/factura';
+import { DatamessageService } from '../datamessage.service';
 
 @Component({
   selector: 'app-salidavehiculos',
@@ -12,11 +14,14 @@ import { TipoVehiculoEnum } from '../../utilEnum/tipovehiculoenum';
 })
 export class SalidavehiculosComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private parqueaderoservice : ParqueaderoService,private toastr: ToastrService) { }
+  constructor(private route: ActivatedRoute,private parqueaderoservice : ParqueaderoService,
+              private toastr: ToastrService,private router: Router,
+              private datamessage: DatamessageService) { }
   id: string;
   TipoVehiculoEnum = TipoVehiculoEnum;
   estacionamiento : Estacionamiento;
   valorpagar : string;
+  factura: Factura;
   ngOnInit() {
    this.route.params.subscribe(params => {
       this.id = params['id']; 
@@ -27,7 +32,10 @@ export class SalidavehiculosComponent implements OnInit {
     this.parqueaderoservice.SalidaVehiculo(this.estacionamiento).subscribe(
       data => {
         this.toastr.success('salida del vehiculo correctamente');
-        console.log(data);
+        this.factura = data;
+        this.datamessage.changeFactura(this.factura);
+        let link = ['/vehiculo/factura'];
+        this.router.navigate(link);
       },
       err => {
         this.toastr.error(err.error.message);

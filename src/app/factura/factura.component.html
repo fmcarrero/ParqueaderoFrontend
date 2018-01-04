@@ -1,0 +1,52 @@
+<div class="row" *ngIf="factura">
+   <div class="container">
+          <div class="row centered-form">
+          <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Factura <small>aqui</small></h3>
+               </div>
+               <div class="panel-body">
+              
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div class="form-group">
+                        <label>Numero Factura</label>
+                        <input type="text"   value='{{factura.numeroFactura}}' class="form-control input-sm" disabled >
+                      </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div class="form-group">
+                        <label>Placa</label>
+                        <input type="text" class="form-control input-sm" value='{{factura.placa}}' disabled>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div class="form-group">
+                        <label>Hora Ingreso</label>
+                        <input type="text"  class="form-control input-sm" value="{{factura.fechaHoraInicio | date:'yyyy-MM-dd HH:mm:ss'}}" disabled>
+                      </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div class="form-group">
+                        <label>Hora Salida</label>
+                        <input type="text" class="form-control input-sm" value="{{factura.fechaHoraFin | date:'yyyy-MM-dd HH:mm:ss'}}"disabled  >
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Total</label>
+                          <input type="text" class="form-control input-sm" value='{{factura.valorPagar}}'  disabled>
+                        </div>
+                      </div>
+                  </div>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+</div>
