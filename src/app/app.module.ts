@@ -9,6 +9,7 @@ import { ParqueaderoService } from './parqueadero.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { SalidavehiculosComponent } from './salidavehiculos/salidavehiculos.component';
 
 
 
@@ -16,7 +17,8 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     AppComponent,  
     RegistrarVehiculosComponent,
-    ListarvehiculosComponent
+    ListarvehiculosComponent,
+    SalidavehiculosComponent
   ],
   imports: [
     AppRoutingModule,

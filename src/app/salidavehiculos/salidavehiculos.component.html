@@ -1,0 +1,28 @@
+<div *ngIf="estacionamiento">
+<div class="container">
+  <div class="row">
+   <div class="col-md-12" >
+    <div class="panel panel-primary">
+     <div class="panel-heading">Salida de Vehiculo:</div>
+      <div class="panel-body">
+       <label>Placa</label>
+       <input type='text' class='form-control'  value='{{estacionamiento.placa}}'  disabled>
+       <label>Cilindraje : </label>
+       <input type='text' class='form-control' value='{{estacionamiento.vehiculo.cilindraje}}' disabled> 
+      <label>Color : </label>
+       <input type='text' class='form-control'  value='{{estacionamiento.vehiculo.color}}' disabled>
+     <label>Hora inicio  : </label>
+     <input type='text' class='form-control'  value="{{estacionamiento.fechaHoraInicio | date:'yyyy-MM-dd HH:mm:ss'}}" disabled>
+     <label>Tipo Vehiculo   :</label>
+     <input type='text' class='form-control'  value='{{TipoVehiculoEnum[estacionamiento.vehiculo.idTipoVehiculo] }}' disabled>
+     <label>Valor a pagar   :</label>
+     <input type='text' class='form-control'  value='{{estacionamiento.valorAPagar}}' disabled>
+     <small>**Recuerde que este valor es un valor no oficial, el valor final depende del momento en que se confirme la salida del vehiculo</small>
+     <br>     
+     <button class="btn btn-success" (click)="VehiculoSalir()" >Confirmar salida</button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -8,6 +8,7 @@ import { appApiResources } from '../app.constants';
 import 'rxjs/add/operator/map';
 import { TipoVehiculoEnum } from '../../utilEnum/tipovehiculoenum';
 
+
 @Component({
   selector: 'app-listarvehiculos',
   templateUrl: './listarvehiculos.component.html',
@@ -28,14 +29,14 @@ export class ListarvehiculosComponent implements OnInit {
 
   getVehiculosEstacionados(){
     this.parqueaderoservice.listAllVehiculos()
-      .subscribe(
+      .subscribe(        
       data => { this.estacionamiento= data
-            console.log(this.estacionamiento);
-            
-      },
+            console.log(this.estacionamiento);      
+                  
+          },     
       err => console.error(err),
-      // the third argument is a function which runs on completion
-      
+    
+     
     );
   }
 

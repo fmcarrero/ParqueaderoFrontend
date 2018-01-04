@@ -6,4 +6,5 @@ export class Estacionamiento {
     vehiculo : Vehiculo; 
     fechaHoraInicio : Date ; 
     observacion : string;
+    ValorAPagar : number;
 }

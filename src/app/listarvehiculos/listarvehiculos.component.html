@@ -20,7 +20,7 @@
                 <td>{{obj.fechaHoraInicio  | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                 <td>{{TipoVehiculoEnum[obj.vehiculo.idTipoVehiculo] }} </td>
                 <td>{{obj.observacion }} </td>
-                <td><button class="btn btn-primary">Dar salida</button></td>
+                <td><button class="btn btn-primary" routerLink="/vehiculo/salida/{{obj.placa}}" routerLinkActive="active" >Dar salida</button></td>
              </tr>
            </tbody>
           </table>         
