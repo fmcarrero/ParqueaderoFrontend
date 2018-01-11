@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TipoVehiculoEnum } from '../../utilEnum/tipovehiculoenum';
 import { Factura } from '../../entidades/factura';
 import { DatamessageService } from '../datamessage.service';
+import { cotizacion } from '../../entidades/cotizacion';
 
 @Component({
   selector: 'app-salidavehiculos',
@@ -20,6 +21,7 @@ export class SalidavehiculosComponent implements OnInit {
   id: string;
   TipoVehiculoEnum = TipoVehiculoEnum;
   estacionamiento : Estacionamiento;
+  cotizacion : cotizacion;
   valorpagar : string;
   factura: Factura;
   ngOnInit() {
@@ -46,7 +48,8 @@ export class SalidavehiculosComponent implements OnInit {
   getVehiculoEstacionado(id: string){
       this.parqueaderoservice.getVehiculoParqueado(id).subscribe(
           data =>{ 
-            this.estacionamiento = data.body
+            this.cotizacion = data.body
+            this.estacionamiento = this.cotizacion.estacionamiento;
        },
           err => {
             console.error(err);

@@ -8,6 +8,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { HttpResponse } from '@angular/common/http/src/response';
 import { Factura } from '../entidades/factura';
+import { cotizacion } from '../entidades/cotizacion';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' ,'Access-Control-Allow-Origin': '*'})
@@ -25,8 +26,8 @@ export class ParqueaderoService {
   agregarVehiculo(vehiculo : Vehiculo) :  Observable<Object>{
       return this.http.post<Object>(appApiResources.agregarVehiculo,vehiculo,httpOptions);
   }
-  getVehiculoParqueado(id : string) : Observable<HttpResponse<Estacionamiento>>{
-           return this.http.get<Estacionamiento>(`${appApiResources.buscarVehiculoEstacionado}/${id}`,
+  getVehiculoParqueado(id : string) : Observable<HttpResponse<cotizacion>>{
+           return this.http.get<cotizacion>(`${appApiResources.buscarVehiculoEstacionado}/${id}`,
          { 
             observe: 'response' 
          } );

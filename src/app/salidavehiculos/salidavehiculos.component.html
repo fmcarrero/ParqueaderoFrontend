@@ -16,7 +16,7 @@
      <label>Tipo Vehiculo   :</label>
      <input type='text' class='form-control'  value='{{TipoVehiculoEnum[estacionamiento.vehiculo.idTipoVehiculo] }}' disabled>
      <label>Valor a pagar   :</label>
-     <input type='text' class='form-control'  value='{{estacionamiento.valorAPagar}}' disabled>
+     <input type='text' class='form-control'  value='{{cotizacion.valorPagar}}' disabled>
      <small>**Recuerde que este valor es un valor no oficial, el valor final depende del momento en que se confirme la salida del vehiculo</small>
      <br>     
      <button class="btn btn-success" (click)="VehiculoSalir()" >Confirmar salida</button>
