@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ParqueaderoService } from './parqueadero.service';
+import { HttpClient,HttpHandler } from '@angular/common/http';
 
 describe('ParqueaderoService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ParqueaderoService]
+      providers: [ParqueaderoService,HttpClient,HttpHandler]
     });
   });
 

@@ -39,8 +39,7 @@ export class RegistrarVehiculosComponent implements OnInit {
     if(placavalue!= ''){
       this.parqueaderoservice.getVehiculo(placavalue).subscribe(
         data =>{
-            console.log(data);
-            this.automovilForm.setValue({placa :data.placa,
+           this.automovilForm.setValue({placa :data.placa,
                                         cilindraje: data.cilindraje,
                                         color : data.color,
                                         tipovehiculo : data.idTipoVehiculo,
@@ -57,13 +56,11 @@ export class RegistrarVehiculosComponent implements OnInit {
         console.log(this.Vehiculo);
         this.parqueaderoservice.agregarVehiculo(this.Vehiculo).subscribe(
           data => { 
-                console.log(data);
+                this.automovilForm.reset();
                 this.toastr.success("se guardo correctamente el vehiculo");
-                //this.notificationsService.addInfo("se guardo correctamente el vehiculo");
           },
           err => {console.error(err);
                   this.toastr.error(err.error.message);
-                  //this.notificationsService.addError("error");
                   console.log(err);
         }
         );

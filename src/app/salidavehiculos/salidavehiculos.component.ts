@@ -53,7 +53,7 @@ export class SalidavehiculosComponent implements OnInit {
        },
           err => {
             console.error(err);
-            this.toastr.error(err.error.message);
+            this.toastr.error(err.error ? err.error.message : 'error');
         }
       );
   }

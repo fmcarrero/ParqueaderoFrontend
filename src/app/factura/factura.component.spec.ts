@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FacturaComponent } from './factura.component';
+import { DatamessageService } from '../datamessage.service';
 
 describe('FacturaComponent', () => {
   let component: FacturaComponent;
@@ -8,7 +9,8 @@ describe('FacturaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FacturaComponent ]
+      declarations: [ FacturaComponent ],
+      providers : [DatamessageService]
     })
     .compileComponents();
   }));

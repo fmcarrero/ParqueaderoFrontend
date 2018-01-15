@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule} from '@angular/router/testing';
 import { ListarvehiculosComponent } from './listarvehiculos.component';
+import { ParqueaderoService } from '../parqueadero.service';
+import { HttpClient,HttpHandler } from '@angular/common/http';
 
 describe('ListarvehiculosComponent', () => {
   let component: ListarvehiculosComponent;
@@ -8,7 +10,9 @@ describe('ListarvehiculosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListarvehiculosComponent ]
+      declarations: [ ListarvehiculosComponent ],
+      providers : [ParqueaderoService,HttpClient,HttpHandler],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   }));
