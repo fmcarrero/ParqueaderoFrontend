@@ -7,9 +7,5 @@ export class Vehiculo {
   cilindraje: number;
   idTipoVehiculo: number;    
   estacionamiento : Estacionamiento;
-
-  constructor(values: Object = {}) {
-    //Constructor initialization
-    Object.assign(this, values);
-  }
+  
 }
